@@ -40,6 +40,7 @@ int main(){
 
             default:
             printf(" Saindo da Calculadora ");
+            break;
 
              }
         }   
