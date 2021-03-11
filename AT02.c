@@ -1,47 +1,79 @@
 #include<stdio.h>
 
+typedef struct{
+    float x, y;
+    double resultado;
+    int op;
+
+}Calculadora;
+
+int somar(int  a, int b);
+int subtrair(int a, int b);
+float dividir(float a, float b);
+int multiplicar(int a, int b);
+
 int main(){
 
-    float a, b ;
-    int op = 1;
-    double resultado;
-     printf("Digite o primeiro numero: ");;
-     scanf("%f",&a);
-     printf("Digite o segundo numero: ");;
-     scanf("%f",&b);
+    Calculadora calc;
+    do{
+         printf("\nInsira um numero: ");
+         scanf("%f",&calc.x);
+         printf("\nInsira outro numero: ");
+         scanf("%f",&calc.y);
 
-     printf(" 0 - Sair\n 1 - Somar\n 2 - Subtrair\n 3 - Dividir\n 4 - Multiplicar");
-     scanf("%d",&op);
-     
+         printf(" 0 - Sair\n 1 - Somar\n 2 - Subtrair\n 3 - Dividir\n 4 - Multiplicar \n");
+         printf("Op: ");
+         scanf("%d",&calc.op);
+         
 
-        switch (op){
-            while (b != 0){
+         switch (calc.op){
+                while (calc.y != 0){
+            
+                    case 0: 
+                        printf(" Saindo da Calculadora\n ");
+                    break;
+                    case 1:
+                        calc.resultado = somar(calc.x,calc.y);
+                        printf("Resultado da soma = %.2f\n",calc.resultado);
+                    break;
+                    case 2:
+                        calc.resultado = subtrair(calc.x,calc.y);;
+                        printf("Resultado da subtracao =  %.2f\n",calc.resultado);
+                    break;
+                    case 3:
+                         if(calc.y == 0){
+                            printf(" Nao existe divisao por zero \n");
+                        }else{
+                                calc.resultado = dividir(calc.x,calc.y);;
+                                printf("Resultado da divisao =  %.2f\n",calc.resultado);
+                            }
+                     break;
+                    case 4:
+                        calc.resultado = multiplicar(calc.x,calc.y);;
+                        printf("resultado da multiplicacao =  %.2f\n",calc.resultado);
+                     break;
 
-            case 1:
-            resultado = a + b;
-            printf(" %.2f",resultado);
-            break;
-            case 2:
-            resultado = a - b;
-            printf(" %.2f",resultado);
-            break;
-            case 3:
-            if(b == 0){
-                printf(" Nao existe divisao por zero ");
-            }else{
-                resultado = a / b;
-                printf(" %.2f",resultado);
-            }
-            break;
-            case 4:
-            resultado = a * b;
-            printf(" %.2f",resultado);
-            break;
-
-            default:
-            printf(" Saindo da Calculadora ");
-            break;
-
-             }
-        }   
+                    default:
+                        printf("Saindo da Calculadora\n ");  
+                    break;       
+            }   }
+      
+    }while(calc.op !=0);
+return 0;
+}
+int somar(int a, int b){
+    double res = a + b;
+return res;  
+}
+int subtrair(int a, int b){
+    double res = a - b;
+    return res;
+}
+float dividir(float a, float b){
+    double res = a / b;
+    return res;
+}
+int multiplicar(int a, int b){
+    double res = a * b;
+    return res;
 }
