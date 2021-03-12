@@ -56,7 +56,8 @@ int main(){
                     default:
                         printf("Saindo da Calculadora\n ");  
                     break;       
-            }   }
+                } 
+            }
       
     }while(calc.op !=0);
 return 0;
