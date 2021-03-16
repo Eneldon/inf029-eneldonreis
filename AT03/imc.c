@@ -10,5 +10,4 @@ int main(){
         imc = calculadora();
         printf("\nIMC = %.2f ",imc);
 
- return 0;
 }
