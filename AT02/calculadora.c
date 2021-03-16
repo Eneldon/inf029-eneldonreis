@@ -1,5 +1,5 @@
 #include<stdio.h>
-// atividade 02 calculadora
+// atividade 02 calculadora !!
 
 typedef struct{
     float x, y;
