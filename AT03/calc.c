@@ -3,7 +3,7 @@
 #include<math.h>
 
 // Atividade de modularização 
-// função que solicita informações e devolve a main o resultado
+// função que solicita informações e devolve a main o resultado.
 
 int calculadora(){
     float peso,altura;

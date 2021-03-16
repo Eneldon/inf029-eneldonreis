@@ -1,2 +1,2 @@
-// biblioteca
+// biblioteca.
 int calculadora();
