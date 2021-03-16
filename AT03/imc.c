@@ -4,10 +4,12 @@
 
 #include "calc.h"
 
+
+
 int main(){
 
         float imc;
-        imc = calculadora();
+        imc = calculadora(); // chama a função calculadora e imprime o resuoltado:
         printf("\nIMC = %.2f ",imc);
 
 }
