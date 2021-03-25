@@ -6,7 +6,7 @@
 
 
 int cadastrarProfessor(Professor lista_professor[], int qtd_professor_cadastrado, int qtd_professor ){
-                     printf("\n***Cadastro de Aluno ***\n");
+                     printf("\n***Cadastro de Professor ***\n");
     for(qtd_professor_cadastrado = 0; qtd_professor_cadastrado < qtd_professor; qtd_professor_cadastrado ++){
                     printf("Digite a matricula: ");
                     scanf("%d", &lista_professor[qtd_professor_cadastrado].matricula);
@@ -46,7 +46,7 @@ int cadastrarProfessor(Professor lista_professor[], int qtd_professor_cadastrado
 }
 
 int listadeProfessor(Professor lista_professor[], int qtd_professor_cadastrado, int qtd_professor){
-                printf("\n### Alunos Cadastrados ####\n");
+                printf("\n### Professores Cadastrados ####\n");
                 int i;
                 for(qtd_professor_cadastrado = 0; qtd_professor_cadastrado < qtd_professor; qtd_professor_cadastrado ++){
                       printf("-----\n");
@@ -63,7 +63,7 @@ int listadeProfessor(Professor lista_professor[], int qtd_professor_cadastrado, 
 }
 int listarProfessor(Professor lista_professor[], int qtd_professor_cadastrado, int qtd_professor){
     char nome[50];
-                printf("\nDigite o nome do aluno que deseja listar: ");
+                printf("\nDigite o nome do professor que deseja listar: ");
                 fgets(nome,50,stdin);
                 size_t lx = strlen(nome) - 1;
                 if (nome[lx] =='\n'){

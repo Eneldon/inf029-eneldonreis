@@ -24,7 +24,6 @@ typedef struct disciplina{
     char nome[50];
     int codigo;
     int semestre;
-    int alunosDaMateria;
     Professor docente;
-    Aluno discentes[60];
+    
 } Disciplina;

@@ -5,6 +5,8 @@
 #include"chamarmenu.h"
 #include"cadastroAluno.h"
 #include"cadastroProfessor.h"
+#include"cadastroDisciplina.h"
+
 
 int main(){
 
