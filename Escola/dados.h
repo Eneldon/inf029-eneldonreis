@@ -17,4 +17,13 @@ typedef struct registroDocente{
     char sexo; // M - Masculino, F - Feminino
     char cpf[15];
     Data  dma; 
-}Docente;
+}Professor;
+
+typedef struct disciplina{
+    char nome[50];
+    int codigo;
+    int semestre;
+    int alunosDaMateria;
+    Professor docente;
+    Aluno discentes[60];
+} Disciplina;
