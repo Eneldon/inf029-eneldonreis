@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define lista 2
+#define TAM 5
 #include"dados.h"
 #include"cadastroAluno.h"
 #include"cadastroProfessor.h"
@@ -9,11 +9,11 @@
 
 void chamarmenu(){
 
-    int qtd_alunos = lista;
+    int qtd_alunos = TAM;
     int qtd_alunos_cadastrado ;
-    int qtd_professor = lista;
+    int qtd_professor = TAM;
     int qtd_professor_cadastrado;
-    int qtd_disciplina = lista;
+    int qtd_disciplina = TAM;
     int qtd_disciplina_cadastrada;
 
     int opcao;
