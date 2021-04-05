@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<ctype.h>
 #include"dados.h"
 
 int cadastrarAluno(Aluno lista_aluno[], int qtd_alunos_cadastrado, int qtd_alunos ){
@@ -22,7 +23,9 @@ int cadastrarAluno(Aluno lista_aluno[], int qtd_alunos_cadastrado, int qtd_aluno
                     }
                     printf("\nInserir  sexo: ( F - Feminino M - Maculino  O - Outros): ");
                     scanf("%c",&lista_aluno[qtd_alunos_cadastrado].sexo);
+                    lista_aluno[qtd_alunos_cadastrado].sexo = toupper(lista_aluno[qtd_alunos_cadastrado].sexo);
                     getchar();
+                    
 
                     printf("\nInserir o cpf: ");
                     fgets(lista_aluno[qtd_alunos_cadastrado].cpf,15,stdin);
