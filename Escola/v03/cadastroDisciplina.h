@@ -1,2 +1,1 @@
-int cadastrarDisciplina(Disciplina lista_disciplina[], int qtd_disciplina_cadastrada, int qtd_disciplina, Professor lista_professor[]);
-void listarDisciplina(Disciplina lista_disciplina[], int qtd_disciplina_cadastrada, int qtd_disciplina, Professor lista_professor[]);
+int inserirDisciplina(Disciplina lista_disciplina[], int qtd_disciplina);

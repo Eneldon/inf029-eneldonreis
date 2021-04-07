@@ -1,49 +1,64 @@
 #include<stdio.h>
-#include<stdlib.h>
 #include<string.h>
 #include<ctype.h>
-#include"dados.h"
+#include"entraDados.h"
+#define  SUCESSO_CADASTRO  1
+#define  ERRO_CADASTRO_MATRICULA  2
+#define  ERRO_CADASTRO_SEXO  3
 
 
 
-int cadastrarProfessor(Professor lista_professor[], int qtd_professor_cadastrado, int qtd_professor ){
-                     printf("\n***Cadastro de Professor ***\n");
-    for(qtd_professor_cadastrado = 0; qtd_professor_cadastrado < qtd_professor; qtd_professor_cadastrado ++){
-                    printf("Digite a matricula: ");
-                    scanf("%d", &lista_professor[qtd_professor_cadastrado].matricula);
-                    getchar();
+int inserirProfessor(Professor lista_professor[], int qtd_professores){
+    
+    printf("\n ### Cadastro de Professor ### \n");
+    fflush(stdin);
+    printf("Digite a matricula: ");
+    scanf("%d",&lista_professor[qtd_professores].matricula);
+    fflush(stdin);
+    
+    if (lista_professor[qtd_professores].matricula <= 0) {
+        return ERRO_CADASTRO_MATRICULA;
+    }    
+    
+    printf("Digite o nome: ");
+    fgets (lista_professor[qtd_professores].nome , 50 , stdin);
+    /* o fgets é uma das funções mais indicadas para ler string do teclado.
+    Ela controla o tamanho do buffer, e não deixa o buffer com lixo. 
+    Entretanto ela guarda o \ n ao final da corda, por isso é preciso removê-lo, como feito a seguir */
+    size_t ln = strlen (lista_professor[qtd_professores].nome) - 1 ; // size_t = tipo inteiro sem sinal
+    if (lista_professor[qtd_professores].nome[ln]== '\n')
+        lista_professor[qtd_professores].nome[ln]= '\0';
+    
+    printf("Digite o sexo: ");
+    scanf("%c",&lista_professor[qtd_professores].sexo);
+    
+    lista_professor[qtd_professores].sexo = toupper(lista_professor[qtd_professores].sexo );
+    if (lista_professor[qtd_professores].sexo  != 'M' && lista_professor[qtd_professores].sexo != 'F' ) {
+        return ERRO_CADASTRO_SEXO;
+    }
+    
+    /* obs. a data de nascimento será recuperada dia, mês e ano,
+        mas depois tem que mudar para informar uma string dd / mm / aaaa, e validar um dado */
+    printf("Digite o dia de nascimento: ");
+    scanf("%d",&lista_professor[qtd_professores].data_nascimento .dia);
 
-                    printf("\nInserir o nome: ");
-                    fgets(lista_professor[qtd_professor_cadastrado].nome,50,stdin);
-                     /*fgets é uma das funções mais indicadas para ler string do teclado. 
-                    Ela controla o tamanho do buffer, e não deixa o buffer com lixo. 
-                    Entretanto ela guarda o \n ao final da string, por isso é preciso removê-lo, como feito a seguir
-                    size_t = unsigned integer type */
-                    size_t ly = strlen(lista_professor[qtd_professor_cadastrado].nome) - 1;
-                    if (lista_professor[qtd_professor_cadastrado].nome[ly] =='\n'){
-                            lista_professor[qtd_professor_cadastrado].nome[ly] ='\0';
-                    }
-                    printf("\nInserir  sexo: ( F - Feminino M - Maculino  O - Outros): ");
-                    scanf("%c",&lista_professor[qtd_professor_cadastrado].sexo);
-                    lista_professor[qtd_professor_cadastrado].sexo = toupper(lista_professor[qtd_professor_cadastrado].sexo);
-                    getchar();
-                    
+    printf("Digite o mes de nascimento: ");
+    scanf("%d",&lista_professor[qtd_professores].data_nascimento.mes);
 
-                    printf("\nInserir o cpf: ");
-                    fgets(lista_professor[qtd_professor_cadastrado].cpf,15,stdin);
-                    size_t lx = strlen(lista_professor[qtd_professor_cadastrado].cpf) - 1;
-                    if (lista_professor[qtd_professor_cadastrado].cpf[lx] =='\n'){             
-                            lista_professor[qtd_professor_cadastrado].cpf[lx] ='\0';
-                    }
+    printf("Digite o ano de nascimento: ");
+    scanf("%d",&lista_professor[qtd_professores].data_nascimento.ano);
+    getchar();
 
-                    printf("\nInforme a data de nascimento do Aluno padrao dd/mm/aaaa: ");
-                    scanf("%d%*c%d%*c%d",&lista_professor[qtd_professor_cadastrado].dma.dia
-                                        ,&lista_professor[qtd_professor_cadastrado].dma.mes
-                                        ,&lista_professor[qtd_professor_cadastrado].dma.ano);
-                    getchar();
-                       
-                    
-                   // qtd_alunos_cadastrado ++;
-                } // fim do for
+    printf("Digite o CPF: ");
+    fgets(lista_professor[qtd_professores].cpf , 15 , stdin);
+    ln = strlen(lista_professor[qtd_professores].cpf ) - 1 ;
+    if (lista_professor[qtd_professores].cpf[ln]== '\n' )
+        lista_professor[qtd_professores].cpf[ln]= '\0' ;
 
+    printf("\n");
+    
+    return SUCESSO_CADASTRO;
+    
+    
 }
+
