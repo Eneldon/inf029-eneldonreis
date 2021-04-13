@@ -135,7 +135,7 @@ void validarNacimento(int dia, int mes, int ano){
             else
             printf("Data Nascimento: %d/%d/%d - Data - Invalido\n",dia,mes,ano);
         }else{
-            printf("Data Nascimento: %d/%d/% - Mes - invalido\n",dia,mes,ano);
+            printf("Data Nascimento: %d/%d/%d - Mes - invalido\n",dia,mes,ano);
             }          
     }else{
         printf("Data Nascimento: %d/%d/%d - Ano invalido\n",dia,mes,ano);
