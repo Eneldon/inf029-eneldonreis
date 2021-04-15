@@ -22,32 +22,14 @@
 // #################################################
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-/*
-## função utilizada para testes  ##
- somar = somar dois valores
-@objetivo
-    Somar dois valores x e y e retonar o resultado da soma
-@entrada
-    dois inteiros x e y
-@saida
-    resultado da soma (x + y)
- */
+
+
 int somar(int x, int y){
   int soma = 0;
   soma = x + y;
   return soma;
 }
-/*
-## função utilizada para testes  ##
- fatorial = fatorial de um número
-@objetivo
-    calcular o fatorial de um número
-@entrada
-    um inteiro x
-@saida
-    fatorial de x -> x!
- */
+
 int fatorial(int x){ //função utilizada para testes
   int fat; 
 
@@ -167,8 +149,17 @@ int q4(char *strTexto, char *strBusca, int posicoes[30]){
  */
 
 int q5(int num){
- 
-    return num;
+   int numInvertido =0;
+
+   while (num)
+   {
+     numInvertido = numInvertido * 10 + num % 10;
+     num = num / 10;
+   }
+     num = numInvertido;
+    
+
+    return num ;
 }
 
 /*
@@ -182,6 +173,19 @@ int q5(int num){
  */
 
 int q6(int numerobase, int numerobusca){
-    int qtdOcorrencias;
+         int i, v[8];
+
+         for(i=0; i<10;i++){
+            v[i]=0;
+         }
+
+         for(i=0; i<10;i++){
+           printf("%d",v[i]);
+         }
+        int qtdOcorrencias= 0;
+        
+
+   
+  
     return qtdOcorrencias;
 }
