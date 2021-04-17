@@ -11,10 +11,10 @@
 //  O aluno deve preencher seus dados abaixo, e implementar as questões do trabalho
 
 //  ----- Dados do Aluno -----
-//  Nome:
-//  email:
-//  Matrícula:
-//  Semestre:
+//  Nome: Eneldon de Jesus Barros Reis
+//  email: eneldon.reis@ifba.edu.br
+//  Matrícula: 2019116011
+//  Semestre:  2º
 
 //  Copyright © 2016 Renato Novais. All rights reserved.
 // Última atualização: 12/12/2017
