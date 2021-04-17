@@ -28,16 +28,19 @@
 int somar(int x, int y){
   int soma = 0;
   soma = x + y;
+  printf(" Valor da Soma: %3d - ",soma);
   return soma;
 }
 
 int fatorial(int x){ //função utilizada para testes
   int fat = 1;
   int i;
-  for(i=1; i < x; i++){
+  for(i=1; i <=x; i++){
       fat = fat * i;
   }
+  printf(" Valor de FAT: %3d - ",fat);
   return fat;
+  
 }
 
 /*
