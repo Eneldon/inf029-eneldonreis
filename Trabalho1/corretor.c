@@ -19,6 +19,7 @@
 
 //renomeie o arquivo do include abaixo para PrimeiroUltimoNomeMATRICULA.c
 #include "EneldonReis2019116011.h"
+#include "Validardata.h"
 
 void testSomar(); //função utilizada para testes
 void testFatorial(); //função utilizada para testes
@@ -30,36 +31,34 @@ void testQ5();
 void testQ6();
 
 int main(){
-    //testSomar();
-    //testFatorial();
-    //testQ1();
-    //testQ2();
+    testSomar();
+    testFatorial();
+    testQ1();
+    testQ2();
     //testQ3();
     //testQ4();
-    //testQ5();
-    testQ6();
+    testQ5();
+    //testQ6();
 }
 
 
 void testSomar(){
-    printf("\n******* Teste 1 *******\n");
+printf("Teste Somar\n");
     printf("%d\n",somar(3, 4) == 7);
     printf("%d\n",somar(-1, 3) == 2);
     printf("%d\n",somar(-6, 6) == 0);
     printf("%d\n",somar(74, 9) == 83);
     printf("%d\n",somar(30, -9) == 21);
 }
-
 void testFatorial(){
-    printf("\n******* Teste 2 ******\n");
+    printf("Teste Fatorial\n");
     printf("%d\n",fatorial(3) == 6);
     printf("%d\n",fatorial(1) == 1);
     printf("%d\n",fatorial(5) == 120);
 }
-
 void testQ1(){
-    printf("\n***** Teste Q1 *****\n");
     char str[11];
+    printf("Teste Q1\n");
     strcpy(str,"29/02/2015");
     printf("%d\n",q1(str) == 0);
     strcpy(str,"29/02/2012");
@@ -71,35 +70,33 @@ void testQ1(){
 }
 
 void testQ2(){
-
-    printf("\n***** Teste Q2 *****\n");
     char datainicial[11], datafinal[11];
     int qtdDias, qtdMeses, qtdAnos;
     int retorno;
 
-   //teste 1
     qtdDias = -1;
     qtdMeses = -1;
     qtdAnos = -1;
 
+    printf("Teste Q2\n");
     strcpy(datainicial,"01/06/2015");
     strcpy(datafinal,"01/06/2016");
     retorno = q2(datainicial, datafinal, &qtdDias, &qtdMeses, &qtdAnos);
+    printf("\n");
     printf("%d\n",retorno == 1);
     printf("%d\n",qtdDias == 0);
     printf("%d\n",qtdMeses == 0);
     printf("%d\n",qtdAnos == 1);
 
-   // teste 2 - retornos
+   
     qtdDias = -1;
     qtdMeses = -1;
     qtdAnos = -1;
-
+    
     strcpy(datainicial,"01/30/2015");
     strcpy(datafinal,"01/06/2016");
     retorno = q2(datainicial, datafinal, &qtdDias, &qtdMeses, &qtdAnos);
     printf("%d\n",retorno == 2);
-
     strcpy(datainicial,"01/3/2015");
     strcpy(datafinal,"40/06/2016");
     retorno = q2(datainicial, datafinal, &qtdDias, &qtdMeses, &qtdAnos);
@@ -109,7 +106,6 @@ void testQ2(){
     retorno = q2(datainicial, datafinal, &qtdDias, &qtdMeses, &qtdAnos);
     printf("%d\n",retorno == 4);
 
-    //teste 3
     qtdDias = -1;
     qtdMeses = -1;
     qtdAnos = -1;
@@ -125,8 +121,8 @@ void testQ2(){
 }
 
 void testQ3(){
-    printf("\n***** Teste Q3 *****\n");
     char str[250];
+    printf("Teste Q3\n");
     strcpy(str,"Renato Lima Novais");
     printf("%d\n",q3(str, 'a', 0) == 3);
     printf("%d\n",q3(str, 'b', 0) == 0);
@@ -136,7 +132,6 @@ void testQ3(){
 }
 
 void testQ4(){
-    printf("\n***** Teste Q4 *****\n");
     char strTexto[250];
     char strBusca[50];
     int posicoes[30];

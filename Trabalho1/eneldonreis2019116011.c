@@ -25,35 +25,22 @@
 #include<stdlib.h>
 #include<ctype.h>
 #include<string.h>
-int somar(int x, int y){
-  int soma = 0;
-  soma = x + y;
-  printf(" Valor da Soma: %3d - ",soma);
-  return soma;
-}
 
-int fatorial(int x){ //função utilizada para testes
+int somar(int x, int y)
+{ int soma = 0; 
+      soma = x + y; 
+return soma;
+}
+int fatorial(int x)
+{ 
   int fat = 1;
   int i;
   for(i=1; i <=x; i++){
       fat = fat * i;
   }
-  printf(" Valor de FAT: %3d - ",fat);
   return fat;
-  
 }
-
-/*
- Q1 = validar data
-@objetivo
-    Validar uma data
-@entrada
-    uma string data. Formatos que devem ser aceitos: dd/mm/aaaa, onde dd = dia, mm = mês, e aaaa, igual ao ano. dd em mm podem ter apenas um digito, e aaaa podem ter apenas dois digitos.
-@saida
-    0 -> se data inválida
-    1 -> se data válida
- */
-int q1(char data[10]){
+int q1(char data[11]){
    int datavalida = 1;
    int i,j=0; // variável contador
    int vet[2]; // vetor para guarda as posições de /
@@ -61,7 +48,7 @@ int q1(char data[10]){
    char dia[3],mes[3],ano[5];
    int iDia,iMes,iAno;
  // guardar posição da /
-   for( i=0; i<10 ; i++){
+   for( i=0; i<11 ; i++){
       if(data[i]=='/'){
          vet[j] = i;
          j++;
@@ -69,80 +56,47 @@ int q1(char data[10]){
          p2 = vet[1];    
       }  
    }
-   // guardando o valor da string dia
-   for(i=0; i<p1; i++){
-         dia[i] = data[i];
-      
+   for(i=0; i<p1; i++){    // guardando o valor da string dia
+         dia[i] = data[i]; 
    }
-   // guardando o valor da string mes
    j =0;
-   for(i=p1+1; i<p2; i++){
+   for(i=p1+1; i<p2; i++){  // guardando o valor da string mes
       mes[j] = data[i];
       j++;
    }
-   // guardando o valor da string ano
    j =0;
-   for(i=p2+1; i < data[i]; i++){
+   for(i=p2+1; i < data[i]; i++){  // guardando o valor da string ano
       ano[j] = data[i];
       j++;
    }
-   // Convertendo a string para inteiro dia, mes, ano
+   // Fazendo conversão de string para Inteiro
    iDia = atoi(dia);
    iMes = atoi(mes);
    iAno = atoi(ano);
-   
-   // validando data 
-   if(iAno < 2000)
-      iAno = iAno + 2000;
-   // imprimindo a data 
-   printf(" %d/%d/%d -",iDia,iMes,iAno);
+      
+   if(iAno < 2000) // Caso o ano seja digitado apenas com 2 digitos, coma com 2000 pra finalizar o processo.
+      iAno = iAno + 2000;    // imprimindo a data      // printf(" %d/%d/%d -",iDia,iMes,iAno);
 
    switch (iMes){
-
-      case 1: if(iDia > 31)
-                  datavalida = 0;
-             break;
-      case 2:  if((iAno % 4 == 0 && iAno % 100 !=0) ||(iAno % 400 == 0)){
-                  if(iDia > 29)
-                  datavalida = 0;
-               }else{
-                  if(iDia > 28)
-                  datavalida = 0;
-               }   
-               break;    
-      case 3: if(iDia < 1 || iDia > 31){
-                  datavalida = 0;
-              }break;
-      case 4: if(iDia > 30){
-                  datavalida = 0;
-      }        break;
-      case 5: if(iDia > 31){
-                  datavalida = 0;
-               }break;
-      case 6: if(iDia > 30){
-                  datavalida = 0;
-               }break;
-      case 7: if(iDia > 31){
-                  datavalida = 0;
-               }break;
-      case 8: if(iDia > 31){
-                  datavalida = 0;
-               }break;
-      case 9: if(iDia > 30){
-                  datavalida = 0;
-              }break;
-      case 10: if(iDia > 30){
-                  datavalida = 0;
-               }break;
-      case 11: if(iDia > 30){
-                  datavalida = 0;
-               }break;
-      case 12: if(iDia > 31){
-                  datavalida = 0;
-               }break;
-      default:
-         datavalida = 0;
-         break;
+         case 1: if(iDia > 31) datavalida = 0;  break;
+         case 2:  if((iAno % 4 == 0 && iAno % 100 !=0) ||(iAno % 400 == 0)){
+                     if(iDia > 29)
+                      datavalida = 0;
+                      }else{
+                         if(iDia > 28)
+                           datavalida = 0;
+         }break;    
+         case 3:  if(iDia < 1 || iDia > 31){ datavalida = 0; }break;
+         case 4:  if(iDia > 30){ datavalida = 0; }break;
+         case 5:  if(iDia > 31){ datavalida = 0; }break;
+         case 6:  if(iDia > 30){ datavalida = 0; }break;
+         case 7:  if(iDia > 31){ datavalida = 0; }break;
+         case 8:  if(iDia > 31){ datavalida = 0; }break;
+         case 9:  if(iDia > 30){ datavalida = 0; }break;
+         case 10: if(iDia > 30){ datavalida = 0; }break;
+         case 11: if(iDia > 30){ datavalida = 0; }break;
+         case 12: if(iDia > 31){ datavalida = 0; }break;
+         default: datavalida = 0; break;
         
       }
 
@@ -150,129 +104,126 @@ int q1(char data[10]){
          return 1;
       }else
          return 0;
- 
 }
 
-/*
- Q2 = diferença entre duas datas
- @objetivo
-    Calcular a diferença em anos, meses e dias entre duas datas
- @entrada
-    uma string datainicial, uma string datafinal. Além disso, a função tem três parâmetros qtdDias, qtdMeses e qtdAnos. Esses três parâmetros devem ser utilizados para guardar os resultados dos cálculos. Na chamada da função deve passar o valor -1 para os três
- @saida
-    1 -> cálculo de diferença realizado com sucesso
-    2 -> datainicial inválida
-    3 -> datafinal inválida
-    4 -> datainicial > datafinal
- */
+// Estrutua struct para atender data inicial e data final.
 typedef struct d{
   char dia[3],mes[3],ano[5];
   int iDia,iMes,iAno;
   int p1,p2; // vriável para guardar a posição da barra
   int vet[2];// vetor para guarda as posições de /
-  int datavalida;
+ 
 }Dados;
 
 int q2(char *datainicial, char *datafinal, int *qtdDias, int *qtdMeses, int *qtdAnos){
       Dados d1;
       Dados d2;
-      d1.datavalida =1;
+      int op;
+      int idatainicial, idatafinal;
+      int datavalida =1;
       int nDias, nMeses, nAnos;
       int i,j=0; // variável contador para data inicial
       int k,y=0; // variável contador para data final
    
- // Fazendo a conversão e testes na data inicial  
- // guarda a posição da / dentro da data inicial
-   for( k=0; k<10 ; k++){
-      if(datainicial[k] =='/'){
-         d1.vet[y] = k;
-         y++;
-         d1.p1 = d1.vet[0];
-         d1.p2 = d1.vet[1];    
-      }  
-   }
+        // programa para guardar a posiçao da '/'.
+            for( k=0; k<10 ; k++){
+               if(datainicial[k] =='/'){
+                   d1.vet[y] = k;
+                   y++;
+                   d1.p1 = d1.vet[0];
+                   d1.p2 = d1.vet[1];    
+               }  
+            }
    
-// guardando o valor da string dia
-   for(k=0; k<d1.p1; k++){
-         d1.dia[k] = datainicial[k]; 
-   }
-   // guardando o valor da string mes
-   y =0;
-   for(k=d1.p1+1; k<d1.p2; k++){
-      d1.mes[y] = datainicial[k];
-      y++;
-   }
-   // guardando o valor da string ano
-   y =0;
-   for(k=d1.p2+1; k < datainicial[k]; k++){
-      d1.ano[y] = datainicial[k];
-      y++;
-   }
+         // Laço para guardar s string dia.
+         for(k=0; k<d1.p1; k++){
+              d1.dia[k] = datainicial[k]; 
+         }
+         // Laço para guardar s string mês.
+          y = 0;
+         for(k=d1.p1+1; k<d1.p2; k++){
+            d1.mes[y] = datainicial[k];
+             y++;
+         }
+         // Laço para guardar s string ano.
+            y = 0;
+         for(k=d1.p2+1; k < datainicial[k]; k++){
+               d1.ano[y] = datainicial[k];
+               y++;
+            }
+         // Convertendo a string para inteiro:
+            d1.iDia = atoi(d1.dia);
+            d1.iMes = atoi(d1.mes);
+            d1.iAno = atoi(d1.ano);
+   
+         // Condição, se data for menot que 2000, somar data + 2000 
+       if(d1.iAno < 2000)
+            d1.iAno = d1.iAno + 2000;
+         // programa para guardar a posiçao da '/'.
+          for( i=0; i<10 ; i++){
+               if(datafinal[i] =='/'){
+                  d2.vet[j] = i;
+                  j++;
+                  d2.p1 = d2.vet[0];
+                  d2.p2 = d2.vet[1];    
+               }  
+            }
+   
+         // guardando o valor da string dia
+            for(i=0; i<d2.p1; i++){
+                  d2.dia[i] = datafinal[i];    
+               }
+         // guardando o valor da string mes
+            j =0;
+            for(i=d2.p1+1; i<d2.p2; i++){
+                d2.mes[j] = datafinal[i];
+                  j++;
+            }
+         // guardando o valor da string ano
+             j =0;
+            for(i=d2.p2+1; i < datafinal[i]; i++){
+                d2.ano[j] = datafinal[i];
+                j++;
+               } 
    // Convertendo a string para inteiro dia, mes, ano
-   d1.iDia = atoi(d1.dia);
-   d1.iMes = atoi(d1.mes);
-   d1.iAno = atoi(d1.ano);
-   
-   // validando data 
-   if(d1.iAno < 2000)
-      d1.iAno = d1.iAno + 2000;
-   //   printf(" data inicial %d/%d/%d",d1.iDia,d1.iMes,d1.iAno);
-
-// Fazendo a conversão e testes na data final
-// guarda a posição da / dentro da data final
-   for( i=0; i<10 ; i++){
-      if(datafinal[i] =='/'){
-         d2.vet[j] = i;
-         j++;
-         d2.p1 = d2.vet[0];
-         d2.p2 = d2.vet[1];    
-      }  
-   }
-   
-// guardando o valor da string dia
-   for(i=0; i<d2.p1; i++){
-         d2.dia[i] = datafinal[i];    
-   }
-   // guardando o valor da string mes
-   j =0;
-   for(i=d2.p1+1; i<d2.p2; i++){
-      d2.mes[j] = datafinal[i];
-      j++;
-   }
-   // guardando o valor da string ano
-   j =0;
-   for(i=d2.p2+1; i < datafinal[i]; i++){
-      d2.ano[j] = datafinal[i];
-      j++;
-   } 
-   // Convertendo a string para inteiro dia, mes, ano
-   d2.iDia = atoi(d2.dia);
-   d2.iMes = atoi(d2.mes);
-   d2.iAno = atoi(d2.ano);
-   // printf(" data final %d/%d/%d",d2.iDia,d2.iMes,d2.iAno);
-  
+               d2.iDia = atoi(d2.dia);
+               d2.iMes = atoi(d2.mes);
+               d2.iAno = atoi(d2.ano);
+      
+   // Condição, se data for menot que 2000, somar data + 2000 
     if(d2.iAno < 2000)
       d2.iAno = d2.iAno + 2000;
-///**************************************************************************
-    if (q1(datainicial) == 0)
-        return 2;
-    nDias = 4;
-    nMeses = 10;
-    nAnos = 2;
 
+    //*************************************************************************
+      
+      if (q1(datainicial) == 0 )
+      return 2; 
+      nDias  = d2.iDia - d1.iDia;
+      nMeses = d2.iMes - d1.iMes;
+      nAnos  = d2.iAno - d1.iAno;
 
-///mantenha o código abaixo, para salvar os dados em nos parâmetros da funcao
-    
-    *qtdDias = nDias;
-    *qtdAnos = nAnos;
-    *qtdMeses = nMeses;
+      if (q1(datafinal) == 0 )
+      return 3; 
+      nDias  = d2.iDia - d1.iDia;
+      nMeses = d2.iMes - d1.iMes;
+      nAnos  = d2.iAno - d1.iAno;
+            
+      if (q1(datainicial) == 1)
+          if(q1(datafinal) == 1)
+            if(d1.iAno > d2.iAno || d1.iMes > d2.iMes || d1.iDia > d2.iDia )
+             
+      return 4;        
+     //mantenha o código abaixo, para salvar os dados em nos parâmetros da funcao
+        
+       *qtdDias = nDias;
+       *qtdAnos = nAnos;
+       *qtdMeses = nMeses;
 
     //coloque o retorno correto
-
-    
-    return 1;
+return 1;
 
 }
+
 
 
 /*
@@ -280,15 +231,17 @@ int q2(char *datainicial, char *datafinal, int *qtdDias, int *qtdMeses, int *qtd
  @objetivo
     Pesquisar quantas vezes um determinado caracter ocorre em um texto
  @entrada
-    uma string texto, um caracter c e um inteiro que informa se é uma pesquisa Case Sensitive ou não. Se isCaseSensitive = 1, a pesquisa deve considerar diferenças entre maiúsculos e minúsculos.
-        Se isCaseSensitive != 1, a pesquisa não deve  considerar diferenças entre maiúsculos e minúsculos.
+    uma string texto, um caracter c e um inteiro que informa 
+    se é uma pesquisa Case Sensitive ou não. Se isCaseSensitive = 1,
+     a pesquisa deve considerar diferenças entre maiúsculos e minúsculos.
+        Se isCaseSensitive != 1, a pesquisa não deve  considerar diferenças
+         entre maiúsculos e minúsculos.
  @saida
     Um número n >= 0.
  */
-int q3(char *texto, char c, int isCaseSensitive){
-    int qtdOcorrencias = -1;
-
-    return qtdOcorrencias;
+int q3(char texto[250], char c, int isCaseSensitive){
+   int qtdOcorrencias = -1;
+   return qtdOcorrencias;
 
 }
 
@@ -335,7 +288,7 @@ int q5(int num){
    }
    num = numInvertido;
 
-  printf("%5d -   ",numInvertido);
+ // printf("%5d -   ",numInvertido);
    
     return num;
 }
@@ -351,11 +304,8 @@ int q5(int num){
  */
 
 int q6(int numerobase, int numerobusca){
-   int qtdOcorrencias;
-   
-  // for(i=0;i<=strlen(numerobase); i++)
-  
 
-    printf(" %d", strlen(numerobase));
+    int qtdOcorrencias = -1;
+
     return qtdOcorrencias;
 }
