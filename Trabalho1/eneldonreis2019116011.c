@@ -90,16 +90,19 @@ int q1(char data[10]){
    iDia = atoi(dia);
    iMes = atoi(mes);
    iAno = atoi(ano);
-   // imprimindo a data 
-   printf(" %d/%d/%d -   ",iDia,iMes,iAno);
+   
    // validando data 
+   if(iAno < 2000)
+      iAno = iAno + 2000;
+   // imprimindo a data 
+   printf(" %d/%d/%d -",iDia,iMes,iAno);
 
    switch (iMes){
 
       case 1: if(iDia > 31)
                   datavalida = 0;
              break;
-      case 2: if((iAno % 4 == 0 && iAno % 100 !=0) ||(iAno % 400 == 0)){
+      case 2:  if((iAno % 4 == 0 && iAno % 100 !=0) ||(iAno % 400 == 0)){
                   if(iDia > 29)
                   datavalida = 0;
                }else{
@@ -162,38 +165,111 @@ int q1(char data[10]){
     3 -> datafinal inválida
     4 -> datainicial > datafinal
  */
-
-typedef struct d{  
-   int datavalida;
-   int vet[2]; // vetor para guarda as posições de /
-   int p1,p2; // vriável para guardar a posição da barra
-   char dia[3],mes[3],ano[5];
-   int iDia,iMes,iAno;  
+typedef struct d{
+  char dia[3],mes[3],ano[5];
+  int iDia,iMes,iAno;
+  int p1,p2; // vriável para guardar a posição da barra
+  int vet[2];// vetor para guarda as posições de /
+  int datavalida;
 }Dados;
 
 int q2(char *datainicial, char *datafinal, int *qtdDias, int *qtdMeses, int *qtdAnos){
-    Dados d1;
-    Dados d2;
-    int nDias, nMeses, nAnos;
+      Dados d1;
+      Dados d2;
+      d1.datavalida =1;
+      int nDias, nMeses, nAnos;
+      int i,j=0; // variável contador para data inicial
+      int k,y=0; // variável contador para data final
+   
+ // Fazendo a conversão e testes na data inicial  
+ // guarda a posição da / dentro da data inicial
+   for( k=0; k<10 ; k++){
+      if(datainicial[k] =='/'){
+         d1.vet[y] = k;
+         y++;
+         d1.p1 = d1.vet[0];
+         d1.p2 = d1.vet[1];    
+      }  
+   }
+   
+// guardando o valor da string dia
+   for(k=0; k<d1.p1; k++){
+         d1.dia[k] = datainicial[k]; 
+   }
+   // guardando o valor da string mes
+   y =0;
+   for(k=d1.p1+1; k<d1.p2; k++){
+      d1.mes[y] = datainicial[k];
+      y++;
+   }
+   // guardando o valor da string ano
+   y =0;
+   for(k=d1.p2+1; k < datainicial[k]; k++){
+      d1.ano[y] = datainicial[k];
+      y++;
+   }
+   // Convertendo a string para inteiro dia, mes, ano
+   d1.iDia = atoi(d1.dia);
+   d1.iMes = atoi(d1.mes);
+   d1.iAno = atoi(d1.ano);
+   
+   // validando data 
+   if(d1.iAno < 2000)
+      d1.iAno = d1.iAno + 2000;
+   //   printf(" data inicial %d/%d/%d",d1.iDia,d1.iMes,d1.iAno);
 
+// Fazendo a conversão e testes na data final
+// guarda a posição da / dentro da data final
+   for( i=0; i<10 ; i++){
+      if(datafinal[i] =='/'){
+         d2.vet[j] = i;
+         j++;
+         d2.p1 = d2.vet[0];
+         d2.p2 = d2.vet[1];    
+      }  
+   }
+   
+// guardando o valor da string dia
+   for(i=0; i<d2.p1; i++){
+         d2.dia[i] = datafinal[i];    
+   }
+   // guardando o valor da string mes
+   j =0;
+   for(i=d2.p1+1; i<d2.p2; i++){
+      d2.mes[j] = datafinal[i];
+      j++;
+   }
+   // guardando o valor da string ano
+   j =0;
+   for(i=d2.p2+1; i < datafinal[i]; i++){
+      d2.ano[j] = datafinal[i];
+      j++;
+   } 
+   // Convertendo a string para inteiro dia, mes, ano
+   d2.iDia = atoi(d2.dia);
+   d2.iMes = atoi(d2.mes);
+   d2.iAno = atoi(d2.ano);
+   // printf(" data final %d/%d/%d",d2.iDia,d2.iMes,d2.iAno);
+  
+    if(d2.iAno < 2000)
+      d2.iAno = d2.iAno + 2000;
+///**************************************************************************
     if (q1(datainicial) == 0)
         return 2;
-
     nDias = 4;
     nMeses = 10;
     nAnos = 2;
 
 
-
-
-    /*mantenha o código abaixo, para salvar os dados em 
-    nos parâmetros da funcao
-    */
+///mantenha o código abaixo, para salvar os dados em nos parâmetros da funcao
+    
     *qtdDias = nDias;
     *qtdAnos = nAnos;
     *qtdMeses = nMeses;
 
     //coloque o retorno correto
+
+    
     return 1;
 
 }
@@ -265,7 +341,7 @@ int q5(int num){
 }
 
 /*
- Q5 = ocorrência de um número em outro
+ Q6 = ocorrência de um número em outro
  @objetivo
     Verificar quantidade de vezes da ocorrência de um número em outro
  @entrada
@@ -275,6 +351,11 @@ int q5(int num){
  */
 
 int q6(int numerobase, int numerobusca){
-    int qtdOcorrencias;
+   int qtdOcorrencias;
+   
+  // for(i=0;i<=strlen(numerobase); i++)
+  
+
+    printf(" %d", strlen(numerobase));
     return qtdOcorrencias;
 }

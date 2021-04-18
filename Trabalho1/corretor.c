@@ -30,14 +30,14 @@ void testQ5();
 void testQ6();
 
 int main(){
-    testSomar();
-    testFatorial();
-    testQ1();
+    //testSomar();
+    //testFatorial();
+    //testQ1();
     //testQ2();
     //testQ3();
     //testQ4();
     //testQ5();
-    //testQ6();
+    testQ6();
 }
 
 
@@ -71,6 +71,7 @@ void testQ1(){
 }
 
 void testQ2(){
+
     printf("\n***** Teste Q2 *****\n");
     char datainicial[11], datafinal[11];
     int qtdDias, qtdMeses, qtdAnos;
