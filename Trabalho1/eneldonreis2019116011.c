@@ -240,7 +240,16 @@ return 1;
     Um número n >= 0.
  */
 int q3(char texto[250], char c, int isCaseSensitive){
+   int i;
    int qtdOcorrencias = -1;
+
+   for(i=0; i<strlen(texto); i++){
+         if(texto[i]!='\0'){
+           
+      }
+    
+   }
+      
    return qtdOcorrencias;
 
 }
