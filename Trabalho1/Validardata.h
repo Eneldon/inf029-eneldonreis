@@ -1,1 +1,0 @@
-int ValidaData( char data[10]);

@@ -17,9 +17,9 @@
 #include<stdio.h>
 #include<string.h>
 
-//renomeie o arquivo do include abaixo para PrimeiroUltimoNomeMATRICULA.c
+
 #include "eneldonreis2019116011.h"
-//#include "Validardata.h"
+
 
 void testSomar(); //função utilizada para testes
 void testFatorial(); //função utilizada para testes
@@ -38,7 +38,7 @@ int main(){
     //testQ3();
     testQ4();
     //testQ5();
-    testQ6();
+    //testQ6();
 }
 
 
@@ -122,7 +122,7 @@ void testQ2(){
 
 void testQ3(){
     char str[250];
-    printf("Teste Q3\n");
+    printf("Teste Q3 ok \n");
     strcpy(str,"Renato Lima Novais");
     printf("%d\n",q3(str, 'a', 0) == 3);
     printf("%d\n",q3(str, 'b', 0) == 0);
@@ -139,6 +139,7 @@ void testQ4(){
     for (i = 0; i<30; i++){
         posicoes[i] = -1;
     }
+    printf("Teste Q4  \n");
     strcpy(strTexto,"Laboratorio de programacao: para ratos de programação");
     strcpy(strBusca,"rato");
     printf("%d\n",q4(strTexto, strBusca, posicoes) == 2);
@@ -147,7 +148,7 @@ void testQ4(){
     printf("%d\n",posicoes[2]==34);
     printf("%d\n",posicoes[3]==37);
 
-
+/*
     for (i = 0; i<30; i++){
         posicoes[i] = -1;
     }
@@ -160,7 +161,7 @@ void testQ4(){
     printf("%d\n",posicoes[3]==36);
     printf("%d\n",posicoes[4]==52);
     printf("%d\n",posicoes[5]==54);
-
+*/
 }
 
 
@@ -173,10 +174,12 @@ void testQ5(){
 }
 
 void testQ6(){
-    printf("\n***** Teste Q6 *****\n");
+    printf("\n***** Teste Q6 OK  *****\n");
     printf("%d\n",q6(34567368, 3) == 2);
     printf("%d\n",q6(34567368, 4576) == 0);
     printf("%d\n",q6(3539343, 3) == 4);
-    printf("%d\n",q6(3539343, 39) == 1);
+    printf("%d\n",q6(3539343, 39) == 1);   
+    
+
 
 }

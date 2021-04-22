@@ -242,6 +242,8 @@ return 1;
  @saida
     Um número n >= 0.
  */
+
+// função para conversão, mas não está em uso
 void minusculo(char s1[250], char s2[250]){
    int i=0;
    while (s1[i !='\0']){
@@ -256,15 +258,16 @@ int q3(char texto[250], char c, int isCaseSensitive){
                  for(i=0; i<=strlen(texto);i++){
                     texto2[i] = tolower(texto[i]);
                  }
+
       // verificar condição, se 0 não levar em consideração maiuscula e minuscula           
       if(isCaseSensitive == 0){
          for(i=0; i<=strlen(texto2); i++){        
-                     if(texto2[i] == tolower(c)) {
+                     if(texto2[i]==  tolower(c)) {
                           qtdOcorrencias++;   }
          }
-      }  
+      }  printf("%c - ",c);
       // verificar condição, se 1 levar em consideração maiuscula e minuscula      
-      if(isCaseSensitive == 1){
+     if(isCaseSensitive == 1){
          for(j=0; j<=strlen(texto); j++){        
                if(texto[j] == c ){
                        qtdOcorrencias++;    }
@@ -290,7 +293,7 @@ int q3(char texto[250], char c, int isCaseSensitive){
  */
 int q4(char *strTexto, char *strBusca, int posicoes[30]){
     int qtdOcorrencias = -1;
-
+    
     return qtdOcorrencias;
 
 }
@@ -332,8 +335,28 @@ int q5(int num){
  */
 
 int q6(int numerobase, int numerobusca){
-
-    int qtdOcorrencias = -1;
-
+   int qtdOcorrencias = 0 ;
+     char cBusca[10];
+     char cBase[10];
+     int x=0;
+     int i = 0;
+ 
+   
+     itoa(numerobase,cBase,10); // N2
+     itoa(numerobusca, cBusca,10); //N1
+    // scanf(" %s",&N1);
+    // scanf(" %s",&N2);
+    do
+    {
+        if(!strncmp(cBase+x, cBusca, strlen(cBusca)))
+        {
+            qtdOcorrencias++;
+            
+            x+=strlen(cBusca);
+        }
+        else
+            x+=1;
+    }    while(x<strlen(cBase));
+   
     return qtdOcorrencias;
 }
