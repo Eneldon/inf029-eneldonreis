@@ -341,11 +341,11 @@ int q6(int numerobase, int numerobusca){
      int x=0;
      int i = 0;
  
-   
-     itoa(numerobase,cBase,10); // N2
-     itoa(numerobusca, cBusca,10); //N1
-    // scanf(" %s",&N1);
-    // scanf(" %s",&N2);
+      // converter inteiro em string
+     itoa(numerobase,cBase,10); 
+     itoa(numerobusca, cBusca,10);
+    
+    // fazer a varredura dentro da string numerobase para verificar a quantidade de vezes que o numero busca ocorre em base
     do
     {
         if(!strncmp(cBase+x, cBusca, strlen(cBusca)))
