@@ -40,6 +40,7 @@ int fatorial(int x)
   }
   return fat;
 }
+
 int q1(char data[11]){
    int datavalida = 1;
    int i,j=0; // variável contador
@@ -47,7 +48,8 @@ int q1(char data[11]){
    int p1,p2; // vriável para guardar a posição da barra
    char dia[3],mes[3],ano[5];
    int iDia,iMes,iAno;
- // guardar posição da /
+     
+  // guardar posição da /
    for( i=0; i<11 ; i++){
       if(data[i]=='/'){
          vet[j] = i;
@@ -69,11 +71,12 @@ int q1(char data[11]){
       ano[j] = data[i];
       j++;
    }
+
    // Fazendo conversão de string para Inteiro
    iDia = atoi(dia);
    iMes = atoi(mes);
    iAno = atoi(ano);
-      
+
    if(iAno < 2000) // Caso o ano seja digitado apenas com 2 digitos, coma com 2000 pra finalizar o processo.
       iAno = iAno + 2000;    // imprimindo a data      // printf(" %d/%d/%d -",iDia,iMes,iAno);
 
@@ -239,19 +242,35 @@ return 1;
  @saida
     Um número n >= 0.
  */
+void minusculo(char s1[250], char s2[250]){
+   int i=0;
+   while (s1[i !='\0']){
+      s2[i] = tolower(s1[i]);
+      i++;
+   }  
+}
 int q3(char texto[250], char c, int isCaseSensitive){
-   int i;
-   int qtdOcorrencias = -1;
-
-   for(i=0; i<strlen(texto); i++){
-         if(texto[i]!='\0'){
-           
-      }
-    
-   }
-      
-   return qtdOcorrencias;
-
+   int i,j, qtdOcorrencias = 0;
+   char texto2[250];
+                 // converter string para Minusculo e guarda em uma nova variável
+                 for(i=0; i<=strlen(texto);i++){
+                    texto2[i] = tolower(texto[i]);
+                 }
+      // verificar condição, se 0 não levar em consideração maiuscula e minuscula           
+      if(isCaseSensitive == 0){
+         for(i=0; i<=strlen(texto2); i++){        
+                     if(texto2[i] == tolower(c)) {
+                          qtdOcorrencias++;   }
+         }
+      }  
+      // verificar condição, se 1 levar em consideração maiuscula e minuscula      
+      if(isCaseSensitive == 1){
+         for(j=0; j<=strlen(texto); j++){        
+               if(texto[j] == c ){
+                       qtdOcorrencias++;    }
+         }
+      }    
+ return qtdOcorrencias;
 }
 
 /*
