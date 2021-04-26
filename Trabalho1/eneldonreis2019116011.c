@@ -90,20 +90,20 @@ int q1(char data[11]){
                            datavalida = 0;
          }break;    
          case 3:  if(iDia < 1 || iDia > 31){ datavalida = 0; }break;
-         case 4:  if(iDia > 30){ datavalida = 0; }break;
-         case 5:  if(iDia > 31){ datavalida = 0; }break;
-         case 6:  if(iDia > 30){ datavalida = 0; }break;
-         case 7:  if(iDia > 31){ datavalida = 0; }break;
-         case 8:  if(iDia > 31){ datavalida = 0; }break;
-         case 9:  if(iDia > 30){ datavalida = 0; }break;
-         case 10: if(iDia > 30){ datavalida = 0; }break;
-         case 11: if(iDia > 30){ datavalida = 0; }break;
-         case 12: if(iDia > 31){ datavalida = 0; }break;
+         case 4:  if(iDia < 1 || iDia > 30){ datavalida = 0; }break;
+         case 5:  if(iDia < 1 || iDia > 31){ datavalida = 0; }break;
+         case 6:  if(iDia < 1 || iDia > 30){ datavalida = 0; }break;
+         case 7:  if(iDia < 1 || iDia > 31){ datavalida = 0; }break;
+         case 8:  if(iDia < 1 || iDia > 31){ datavalida = 0; }break;
+         case 9:  if(iDia < 1 || iDia > 30){ datavalida = 0; }break;
+         case 10: if(iDia < 1 || iDia > 30){ datavalida = 0; }break;
+         case 11: if(iDia < 1 || iDia > 30){ datavalida = 0; }break;
+         case 12: if(iDia < 1 || iDia > 31){ datavalida = 0; }break;
          default: datavalida = 0; break;
         
       }
 
-      if(datavalida){
+      if(datavalida == 1){
          return 1;
       }else
          return 0;
@@ -122,14 +122,12 @@ int q2(char *datainicial, char *datafinal, int *qtdDias, int *qtdMeses, int *qtd
       Dados d1;
       Dados d2;
       int op;
-      int idatainicial, idatafinal;
-      int datavalida =1;
       int nDias, nMeses, nAnos;
-      int i,j=0; // variável contador para data inicial
-      int k,y=0; // variável contador para data final
+      int i,j=0; // variável contador para data final
+      int k,y=0; // variável contador para data inicial
    
         // programa para guardar a posiçao da '/'.
-            for( k=0; k<10 ; k++){
+            for( k=0; k<11 ; k++){
                if(datainicial[k] =='/'){
                    d1.vet[y] = k;
                    y++;
@@ -137,20 +135,24 @@ int q2(char *datainicial, char *datafinal, int *qtdDias, int *qtdMeses, int *qtd
                    d1.p2 = d1.vet[1];    
                }  
             }
-   
+      
          // Laço para guardar s string dia.
-         for(k=0; k<d1.p1; k++){
-              d1.dia[k] = datainicial[k]; 
+         y=0;
+         
+         for(k=0; k <d1.p1; k++){
+              d1.dia[y] = datainicial[k]; 
+              y++;
          }
          // Laço para guardar s string mês.
-          y = 0;
-         for(k=d1.p1+1; k<d1.p2; k++){
+         y=0;
+         for(k = d1.p1+1; k < d1.p2; k++){
             d1.mes[y] = datainicial[k];
-             y++;
+            y++;
+            
          }
          // Laço para guardar s string ano.
-            y = 0;
-         for(k=d1.p2+1; k < datainicial[k]; k++){
+         y=0;  
+         for(k = d1.p2+1; k < 11; k++){
                d1.ano[y] = datainicial[k];
                y++;
             }
@@ -160,10 +162,14 @@ int q2(char *datainicial, char *datafinal, int *qtdDias, int *qtdMeses, int *qtd
             d1.iAno = atoi(d1.ano);
    
          // Condição, se data for menot que 2000, somar data + 2000 
-       if(d1.iAno < 2000)
+       if(d1.iAno < 2000){
             d1.iAno = d1.iAno + 2000;
+       }
+
+        // printf("int1  %d/%d/%d\n",d1.iDia,d1.iMes,d1.iAno);
          // programa para guardar a posiçao da '/'.
-          for( i=0; i<10 ; i++){
+         
+          for( i  =0; i < 11 ; i++){
                if(datafinal[i] =='/'){
                   d2.vet[j] = i;
                   j++;
@@ -171,20 +177,22 @@ int q2(char *datainicial, char *datafinal, int *qtdDias, int *qtdMeses, int *qtd
                   d2.p2 = d2.vet[1];    
                }  
             }
-   
+ 
          // guardando o valor da string dia
-            for(i=0; i<d2.p1; i++){
-                  d2.dia[i] = datafinal[i];    
+            j=0;
+            for(i = 0; i < d2.p1; i++){
+                  d2.dia[j] = datafinal[i];  
+                  j++;  
                }
          // guardando o valor da string mes
-            j =0;
-            for(i=d2.p1+1; i<d2.p2; i++){
-                d2.mes[j] = datafinal[i];
-                  j++;
+           j=0;
+            for(i = d2.p1+1; i < d2.p2; i++){
+                    d2.mes[j] = datafinal[i];
+                    j++;
             }
          // guardando o valor da string ano
-             j =0;
-            for(i=d2.p2+1; i < datafinal[i]; i++){
+             j=0;
+            for(i = d2.p2+1; i < 11; i++){
                 d2.ano[j] = datafinal[i];
                 j++;
                } 
@@ -194,38 +202,48 @@ int q2(char *datainicial, char *datafinal, int *qtdDias, int *qtdMeses, int *qtd
                d2.iAno = atoi(d2.ano);
       
    // Condição, se data for menot que 2000, somar data + 2000 
-    if(d2.iAno < 2000)
+    if(d2.iAno < 2000){
       d2.iAno = d2.iAno + 2000;
+    }
+
+  
+      nDias  = d2.iDia - d1.iDia; 
+      nMeses = d2.iMes - d1.iMes; 
+      nAnos  = d2.iAno - d1.iAno; 
 
     //*************************************************************************
       
-      if (q1(datainicial) == 0 )
+    
+      if (q1(datainicial) == 0 ){
+         *qtdDias = nDias;
+         *qtdAnos = nAnos;
+         *qtdMeses = nMeses;
+         
       return 2; 
-      nDias  = d2.iDia - d1.iDia;
-      nMeses = d2.iMes - d1.iMes;
-      nAnos  = d2.iAno - d1.iAno;
-
-      if (q1(datafinal) == 0 )
-      return 3; 
-      nDias  = d2.iDia - d1.iDia;
-      nMeses = d2.iMes - d1.iMes;
-      nAnos  = d2.iAno - d1.iAno;
-            
+      }
+      if(q1(datafinal) == 0){
+         *qtdDias = nDias;
+         *qtdAnos = nAnos;
+         *qtdMeses = nMeses;
+         
+         return 3; 
+      }
       if (q1(datainicial) == 1)
           if(q1(datafinal) == 1)
             if(d1.iAno > d2.iAno || d1.iMes > d2.iMes || d1.iDia > d2.iDia )
-             
+            
+            
       return 4;        
-     //mantenha o código abaixo, para salvar os dados em nos parâmetros da funcao
+     
+       
+         *qtdDias = nDias;
+         *qtdAnos = nAnos;
+         *qtdMeses = nMeses;
         
-       *qtdDias = nDias;
-       *qtdAnos = nAnos;
-       *qtdMeses = nMeses;
-
-    //coloque o retorno correto
-return 1;
-
+      return 1; 
 }
+    
+
 
 
 
@@ -292,8 +310,54 @@ int q3(char texto[250], char c, int isCaseSensitive){
 
  */
 int q4(char *strTexto, char *strBusca, int posicoes[30]){
-    int qtdOcorrencias = -1;
-    
+    int qtdOcorrencias = 0;
+    int i,j,x,k,ps=0,cont,contX=0;
+
+    for(i=0; strTexto[i] != '\0'; i++)
+    {
+        cont=0;
+
+        if(strTexto[i] == -61)
+        {
+            contX++;
+        }
+
+        for(j=0; strBusca[j] !='\0';j++)
+        {
+            if(strTexto[i] == strBusca[j])
+            {
+                cont++;
+                for(x=i+1,k=j+1;strBusca[k] !='\0';x++,k++)
+                {
+                    if(strTexto[x] == strBusca[k])
+                    {
+                        cont++;
+                    }else
+                    {
+                        break;
+                    }
+                }
+                if(cont == strlen(strBusca))
+                {
+                    posicoes[ps++] = (i+1)-contX;
+                    if(strTexto[i] == strBusca[j])
+                    {
+                        posicoes[ps++] = x-contX;
+                        qtdOcorrencias++;
+
+                    }
+                }
+            }else
+            {
+                break;
+            }
+            
+            
+        }
+
+        
+    }
+
     return qtdOcorrencias;
 
 }
