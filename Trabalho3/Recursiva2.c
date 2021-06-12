@@ -5,41 +5,49 @@
 
 // protótipo da função fatorial
 
-int fibonacci(int n);
+long int fibonacci(int n);
 
-int main(void){
+void main(){
 
+//Sequencia fibonacci 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55..
     int numero; 
-    double f;
+    long int fibo;
 
-    printf("Digite o numero que deseja calcular oo fatorial: ");
+    printf("Digite uma posicao: ");
     scanf("%d",&numero);
 
     // chamada da função farorial
 
-    f = fatorial(numero);
+    fibo = fibonacci(numero);
 
-    printf("Fatorial de %d = %.0lf",numero,f);
+    printf("Posicao %d da sequencia de fibonacci:  %li",numero,fibo);
 
-    getch();
-    return 0;
 }
 
-// Função recursiva que calcula o fatorial
-// de um número inteiro n
+// Função recursiva sequencia fibonacci
 
-int fibonacci(int n){
 
-    int vfib;
+long int fibonacci(int n){
+    int i;
+    long int x = 0;
+    long int z = 1;
     
-    if(n <=1)
-    // Caso base: fartorial de n <= 1 retorna 1
-    return (1);
-    
-    else
-    {
-        // chamada da função recursiva
-        vfib = n * fibonacci(n-1);
-        return (vfib);
+    if(n % 2 == 0){
+        for( i =2; i != n; i = i+2 )
+        {
+            x = x + z;
+            z = x + z;
+        }
+        return z;
     }
+    else{
+        for( i =1; i != n; i = i+2 )
+        {
+            x = x + z;
+            z = x + z;
+        }
+        return (x);
+    }
+        
+    
 }
