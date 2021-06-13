@@ -28,26 +28,11 @@ void main(){
 
 
 long int fibonacci(int n){
-    int i;
-    long int x = 0;
-    long int z = 1;
-    
-    if(n % 2 == 0){
-        for( i =2; i != n; i = i+2 )
-        {
-            x = x + z;
-            z = x + z;
-        }
-        return z;
-    }
-    else{
-        for( i =1; i != n; i = i+2 )
-        {
-            x = x + z;
-            z = x + z;
-        }
-        return (x);
-    }
-        
-    
+    if(n==1){
+    return 0;
+  }else if(n==2||n==3){
+    return 1; 
+  }else{
+    return fibonacci(n-1)+fibonacci(n-2);
+  }
 }
