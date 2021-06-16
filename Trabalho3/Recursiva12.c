@@ -6,6 +6,8 @@
 // Matrícula : 2019116011
 // Semestre : 2º
 
+// Questão 12
+
 // Protótipo de escreve números naturias em ordem crescente
 int q12(int n);
 

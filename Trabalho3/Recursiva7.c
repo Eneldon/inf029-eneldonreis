@@ -8,6 +8,8 @@
 // Matrícula : 2019116011
 // Semestre : 2º
 
+// Questão 07
+
 // protótipo da função que inverte 100 numeros contido num vetor
 
 int q7(int *vet, int i);

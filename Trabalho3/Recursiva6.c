@@ -6,6 +6,7 @@
 // Matrícula : 2019116011
 // Semestre : 2º
 
+// Questão 06
 
 // protótipo  função multiplicação
 int q6(int k, int n);

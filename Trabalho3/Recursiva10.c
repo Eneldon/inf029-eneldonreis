@@ -8,6 +8,8 @@
 // Matrícula : 2019116011
 // Semestre : 2º
 
+// Questão 10
+
 // Protótipo da Função
 int q10(int k, int n);
 
