@@ -2,6 +2,9 @@
 #include<stdlib.h>
 #include<conio.h>
 
+// Eneldon de Jesus Barros Reis
+// Matrícula : 2019116011
+// Semestre : 2º
 
 // protótipo da função invert
 
@@ -14,8 +17,6 @@ int main(void){
 
     printf("Digite o numero que deseja inverter: ");
     scanf("%d",&numero);
-
-    // chamada da função farorial
 
     invertido = invert(numero);
 

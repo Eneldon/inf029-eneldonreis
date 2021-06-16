@@ -2,14 +2,16 @@
 #include<stdlib.h>
 #include<conio.h>
 
+// Eneldon de Jesus Barros Reis
+// Matrícula : 2019116011
+// Semestre : 2º
 
-// protótipo da função fatorial
-
+// protótipo da função Fibonacci
 long int fibonacci(int n);
 
 void main(){
 
-//Sequencia fibonacci 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55..
+//Sequencia fibonacci 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89...
     int numero; 
     long int fibo;
 
@@ -25,7 +27,6 @@ void main(){
 }
 
 // Função recursiva sequencia fibonacci
-
 
 long int fibonacci(int n){
     if(n==1){

@@ -2,6 +2,11 @@
 #include<stdlib.h>
 #include<conio.h>
 
+// Eneldon de Jesus Barros Reis
+// Matrícula : 2019116011
+// Semestre : 2º
+
+// Protótipo da função que escreve números pares em ordem decrescente
 int q15(int n);
 
 int main(){

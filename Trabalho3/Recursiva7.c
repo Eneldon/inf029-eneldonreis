@@ -1,8 +1,14 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
-
 #define TAM 100
+
+
+// Eneldon de Jesus Barros Reis
+// Matrícula : 2019116011
+// Semestre : 2º
+
+// protótipo da função que inverte 100 numeros contido num vetor
 
 int q7(int *vet, int i);
 

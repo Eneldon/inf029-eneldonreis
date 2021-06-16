@@ -2,6 +2,11 @@
 #include<stdlib.h>
 #include<conio.h>
 
+// Eneldon de Jesus Barros Reis
+// Matrícula : 2019116011
+// Semestre : 2º
+
+
 
 // protótipo da função fatorial
 
@@ -10,16 +15,16 @@ double fatorial(int n);
 int main(void){
 
     int numero; 
-    double f;
+    double fat;
 
     printf("Digite o numero que deseja calcular oo fatorial: ");
     scanf("%d",&numero);
 
     // chamada da função farorial
 
-    f = fatorial(numero);
+    fat = fatorial(numero);
 
-    printf("Fatorial de %d = %.0lf",numero,f);
+    printf("Fatorial de %d = %.0lf",numero,fat);
 
     getch();
     return 0;

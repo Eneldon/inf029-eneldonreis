@@ -2,6 +2,10 @@
 #include<stdlib.h>
 #include<conio.h>
 
+// Eneldon de Jesus Barros Reis
+// Matrícula : 2019116011
+// Semestre : 2º
+
 int q8(int k, int n);
 
 int main(){

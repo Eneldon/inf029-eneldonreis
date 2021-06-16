@@ -2,6 +2,13 @@
 #include<stdlib.h>
 #include<conio.h>
 
+
+// Eneldon de Jesus Barros Reis
+// Matrícula : 2019116011
+// Semestre : 2º
+
+// protótipo da função soma
+
 int somaAteN(int n);
 
 int main(){
