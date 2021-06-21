@@ -50,6 +50,7 @@ typedef struct reg {
 
 void show_log2(char *str);
 int criarEstruturaAuxiliar(int tamanho, int posicao);
+//int lerArquivo();
 void lerArquivo();
 int converteLinha(char linha[]);
 int encontraValor(char str[], char linha[], int posicao);

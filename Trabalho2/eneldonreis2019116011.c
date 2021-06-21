@@ -22,7 +22,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "EstruturaVetores.h"
+#include "eneldonreis2019116011.h"
 
 NoPrincipal vetorPrincipal[TAM]={};
 //inicializa a estrutura principal
